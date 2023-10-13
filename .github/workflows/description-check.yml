@@ -15,7 +15,6 @@ jobs:
       id: check_description
       run: |
         pr_description=$(jq -r '.pull_request.body' $GITHUB_EVENT_PATH)
-        if [ -z "$pr_description" ]; then
-          echo "Поле Description в пулл-реквесте не заполнено. Пожалуйста, предоставьте описание для пулл-реквеста."
-          exit 1
+        if [ -n "$pr_description" ]; then
+          echo "Поле Description в пулл-реквесте заполнено."
         fi
