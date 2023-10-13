@@ -20,4 +20,5 @@ jobs:
           exit 1
         else
           echo "Поле Description в пулл-реквесте заполнено."
+          exit 0
         fi
