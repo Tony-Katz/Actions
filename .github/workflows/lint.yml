@@ -27,4 +27,4 @@ jobs:
     - name: css lint
       run: |
         npm install -g csslint
-        csslint "css/style.css"
+        csslint "style.css"
