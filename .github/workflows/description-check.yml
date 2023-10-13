@@ -1,4 +1,4 @@
-name: Проверка Description в Pull Request
+name: Check Description on Pull Request
 
 on:
   pull_request:
@@ -7,14 +7,15 @@ on:
       - synchronize
 
 jobs:
-  check_description:
+  description-check:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Проверка Description
-      id: check_description
-      run: |
-        pr_description=$(jq -r '.pull_request.body' $GITHUB_EVENT_PATH)
-        if [ -n "$pr_description" ]; then
-          echo "Поле Description в пулл-реквесте заполнено."
-        fi
+      - name: Check Description Length
+        uses: ryanvade/enforce-pr-description-length-action@v1
+        with:
+          minLength: 3 # Установите желаемую минимальную длину описания
+
+      - name: End Pipeline on Invalid Description
+        if: failure()
+        run: exit 1
