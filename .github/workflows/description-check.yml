@@ -18,7 +18,4 @@ jobs:
         if [ -z "$pr_description" ]; then
           echo "Поле Description в пулл-реквесте не заполнено. Пожалуйста, предоставьте описание для пулл-реквеста."
           exit 1
-        else
-          echo "Поле Description в пулл-реквесте заполнено."
-          exit 0
         fi
