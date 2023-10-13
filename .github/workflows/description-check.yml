@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Check Description Length
-        uses: ryanvade/enforce-pr-description-length-action@v1
+        uses: Tony-Katz/enforce-pr-description-length-action@v1
         with:
           minLength: 3 # Установите желаемую минимальную длину описания
 
